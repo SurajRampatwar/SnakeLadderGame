@@ -9,7 +9,7 @@ public class UC3_1_PlayerCheckOption {
         Scanner scan = new Scanner(System.in);
         System.out.println("Player at start position = " + currPosition);
         System.out.println("Current dice value = " + DiceValue);
-        DiceValue = (int) Math.floor(Math.random() * 10) % 6 + 1;
+        DiceValue = (int) (Math.random() * 10) % 6 + 1;
         PlayerPosition = DiceValue;
         System.out.println("Decide play or not press Y or N");
         String play = scan.next();
