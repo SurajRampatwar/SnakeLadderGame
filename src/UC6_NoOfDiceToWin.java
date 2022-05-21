@@ -1,12 +1,13 @@
 import java.util.Scanner;
 
-public class UC4_RepeatTillWin {
+public class UC6_NoOfDiceToWin {
     public static void main(String[] args) {
         System.out.println("Welcome to Snake and Ladder game");
         int currPosition = 0;
         int DiceValue = 0;
         int PlayerPosition = 0;
         int WinPosition = 100;
+        int countDice = 0;
         Scanner scan = new Scanner(System.in);
         System.out.println("Player at start position = " + currPosition);
         System.out.println("Current dice value = " + DiceValue);
@@ -19,8 +20,12 @@ public class UC4_RepeatTillWin {
                 if ("r".equals(roll)) {
                     DiceValue = (int) (Math.random() * 10) % 6 + 1;
                     PlayerPosition = DiceValue + PlayerPosition;
+                    countDice++;
                     if (PlayerPosition == WinPosition) {
                         System.out.println("Congratulation you have won");
+                        System.out.println("Number of times dice rolled = " + countDice);
+                    } else if (PlayerPosition > WinPosition) {
+                        PlayerPosition = PlayerPosition - DiceValue;
                     } else {
                         switch (PlayerPosition) {
                             case 25:
@@ -67,6 +72,7 @@ public class UC4_RepeatTillWin {
                     }
                     System.out.println("Current dice value = " + DiceValue);
                     System.out.println("Player  position = " + PlayerPosition);
+
                 } else {
                     System.out.println("Invalid key");
                 }
@@ -75,4 +81,5 @@ public class UC4_RepeatTillWin {
             System.out.println("Quit Game");
         }
     }
+
 }
